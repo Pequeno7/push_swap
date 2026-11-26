@@ -1,33 +1,63 @@
 # push_swap
 
-Projeto da 42 School em C: ordenar uma sequência de inteiros utilizando duas stacks e um conjunto limitado de operações.
+Projeto da 42 School em C para ordenar inteiros usando duas stacks e um conjunto limitado de operações.
 
-## Objetivos
+## Estado atual
 
-- Implementar operações sobre duas stacks.
-- Desenvolver e comparar estratégias de ordenação.
-- Reduzir o número de operações utilizadas.
-- Tratar argumentos e casos limite corretamente.
-- Respeitar as regras de estilo da 42 School (Norminette).
+**Implementação inicial publicada — ainda não validada integralmente.**
 
-## Estratégia em desenvolvimento
+Esta primeira versão contém:
+- Estrutura de stack ligada.
+- Validação de argumentos numéricos passados individualmente.
+- Rejeição de valores fora do intervalo de `int` e de números duplicados.
+- Atribuição de índices (*coordinate compression*).
+- Operações `sa`, `sb`, `pa`, `pb`, `ra`, `rb`, `rra` e `rrb`.
+- Ordenação por radix sort binário.
 
-Foi explorada uma abordagem adaptativa que escolhe a estratégia de ordenação de acordo com o nível de desordem da sequência. Os critérios e limiares finais deverão ser confirmados com a implementação e os testes atuais.
+## Estrutura
+
+```text
+push_swap/
+├── includes/
+│   └── push_swap.h
+├── src/
+│   ├── main.c
+│   ├── parse.c
+│   ├── stack.c
+│   ├── operations.c
+│   └── sort.c
+├── Makefile
+└── README.md
+```
+
+## Compilar
+
+```bash
+make
+```
+
+O executável gerado chama-se `push_swap`.
+
+## Executar
+
+Nesta versão inicial, passa cada número como argumento separado:
+
+```bash
+./push_swap 3 2 1
+./push_swap -5 0 42 9
+```
+
+A entrada no formato de uma única string entre aspas (por exemplo, `./push_swap "3 2 1"`) ainda não está implementada.
+
+## Próximas etapas
+
+1. Implementar a divisão de argumentos com espaços e validação completa.
+2. Criar estratégias específicas para sequências pequenas (2, 3 e 5 elementos).
+3. Integrar e avaliar a estratégia adaptativa anteriormente explorada.
+4. Otimizar operações e reduzir a contagem de instruções.
+5. Adicionar testes automáticos e testar com o checker.
+6. Corrigir todos os avisos da Norminette e executar testes de memória.
 
 ## Validação
 
-A validação deve incluir:
-
-- Sequências pequenas e grandes.
-- Valores negativos, zero e limites de inteiros.
-- Entradas inválidas e duplicados.
-- Verificação do resultado com checker.
-- Contagem de operações e testes de memória.
-
-## Compilação e execução
-
-As instruções exatas serão documentadas após confirmação dos ficheiros e do Makefile existentes no projeto.
-
-## Estado
-
-**Projeto académico em desenvolvimento.** Este documento descreve os objetivos e a estratégia explorada; não declara o projeto como concluído nem garante aprovação nos testes da 42.
+A compilação, a Norminette, o checker e os testes de memória ainda precisam de ser executados. Não considerar esta versão como pronta para avaliação ou submissão.
